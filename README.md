@@ -1,18 +1,24 @@
-# Nome do projeto
+# KV-store-grpc
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+Vocês irão desenvolver um Key-Value store in memory utilizando o gRPC.
+
+As primitivas do Key-Value Store são:
+
+put(key, value)
+get(key) : value
+getAllKeys() : Key[]
+Neste trabalho, vocês deverão utilizar o protocolo gRPC para permitir que o cliente adicione uma chave e valor. Neste trabalho não será necessário implementar buckets de dados para cada cliente. Ou seja, todos os clientes poderão acessar uma base de dados comum.
+
+O trabalho poderá ser realizado com qualquer linguagem/plataforma suportada pelo gRPC.
+
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Carla d'Abreu Martins Vieira
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Hugo de Paula
 
 ## Instruções de utilização
 
