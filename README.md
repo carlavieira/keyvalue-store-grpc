@@ -4,9 +4,10 @@ Vocês irão desenvolver um Key-Value store in memory utilizando o gRPC.
 
 As primitivas do Key-Value Store são:
 
-put(key, value)
-get(key) : value
-getAllKeys() : Key[]
+* put(key, value)
+* get(key) : value
+* getAllKeys() : Key[]
+
 Neste trabalho, vocês deverão utilizar o protocolo gRPC para permitir que o cliente adicione uma chave e valor. Neste trabalho não será necessário implementar buckets de dados para cada cliente. Ou seja, todos os clientes poderão acessar uma base de dados comum.
 
 O trabalho poderá ser realizado com qualquer linguagem/plataforma suportada pelo gRPC.
