@@ -1,26 +1,68 @@
 # KV-store-grpc
 
-Vocês irão desenvolver um Key-Value store in memory utilizando o gRPC.
+This work is a Key-Value store in memory using gRPC.
 
-As primitivas do Key-Value Store são:
+The Key-Value Store primitives are:
 
 * put(key, value)
 * get(key) : value
 * getAllKeys() : Key[]
 
-Neste trabalho, vocês deverão utilizar o protocolo gRPC para permitir que o cliente adicione uma chave e valor. Neste trabalho não será necessário implementar buckets de dados para cada cliente. Ou seja, todos os clientes poderão acessar uma base de dados comum.
+This work uses gRPC protocol to allow the customer to add a key and value. It will not be necessary to implement data buckets for each customer. That is, all customers will be able to access a common database.
 
-O trabalho poderá ser realizado com qualquer linguagem/plataforma suportada pelo gRPC.
+The work was developed in python.
 
-
-## Alunos integrantes da equipe
+## Student
 
 * Carla d'Abreu Martins Vieira
 
-## Professores responsáveis
+## Teacher
 
 * Hugo de Paula
 
-## Instruções de utilização
+## Prerequisites
+All the following prerequisite information can be found on [grpc.io/docs/languages/python/quickstart/](https://grpc.io/docs/languages/python/quickstart/)
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Python 2.7, or Python 3.4 or higher
+```shell
+pip version 9.0.1 or higher
+```
+If necessary, upgrade your version of pip:
+```shell
+$ python -m pip install --upgrade pip
+```
+If you cannot upgrade pip due to a system-owned installation, you can run the example in a virtualenv:
+```shell
+$ python -m pip install virtualenv
+$ virtualenv venv
+$ source venv/bin/activate
+$ python -m pip install --upgrade pip
+```
+
+### gRPC
+Install gRPC:
+```shell
+$ python -m pip install grpcio
+```
+Or, to install it system wide:
+```shell
+$ sudo python -m pip install grpcio
+```
+On El Capitan OSX, you may get the following error:
+```shell
+$ OSError: [Errno 1] Operation not permitted: '/tmp/pip-qwTLbI-uninstall/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/six-1.4.1-py2.7.egg-info'
+```
+You can work around this using:
+```shell
+$ python -m pip install grpcio --ignore-installed
+```
+
+### gRPC tools
+Python’s gRPC tools include the protocol buffer compiler protoc and the special plugin for generating server and client code from .proto service definitions. For the first part of our quick-start example, we’ve already generated the server and client stubs from helloworld.proto, but you’ll need the tools for the rest of our quick start, as well as later tutorials and your own projects.
+
+To install gRPC tools, run:
+```shell
+$ python -m pip install grpcio-tools
+```
+# Use Instructions
+
