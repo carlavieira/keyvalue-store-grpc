@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0ekeyvalue.proto\"&\n\x08KeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\x05\"\'\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\t\x12\x0f\n\x07\x64\x65\x66ined\x18\x02 \x01(\x08\")\n\x0bNewKeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x06\n\x04Void\"a\n\nStoredKeys\x12%\n\x05store\x18\x01 \x03(\x0b\x32\x16.StoredKeys.StoreEntry\x1a,\n\nStoreEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x32j\n\x0fKeyValueService\x12\x15\n\x03get\x12\x04.Key\x1a\x06.Value\"\x00\x12\x1c\n\x03put\x12\x0c.NewKeyValue\x1a\x05.Void\"\x00\x12\"\n\ngetAllKeys\x12\x05.Void\x1a\x0b.StoredKeys\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0ekeyvalue.proto\"&\n\x08KeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\"\'\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\t\x12\x0f\n\x07\x64\x65\x66ined\x18\x02 \x01(\x08\")\n\x0bNewKeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x06\n\x04Void\"\x1a\n\nStoredKeys\x12\x0c\n\x04keys\x18\x01 \x03(\t2j\n\x0fKeyValueService\x12\x15\n\x03get\x12\x04.Key\x1a\x06.Value\"\x00\x12\x1c\n\x03put\x12\x0c.NewKeyValue\x1a\x05.Void\"\x00\x12\"\n\ngetAllKeys\x12\x05.Void\x1a\x0b.StoredKeys\"\x00\x62\x06proto3'
 )
 
 
@@ -74,8 +74,8 @@ _KEY = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='Key.key', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -199,44 +199,6 @@ _VOID = _descriptor.Descriptor(
 )
 
 
-_STOREDKEYS_STOREENTRY = _descriptor.Descriptor(
-  name='StoreEntry',
-  full_name='StoredKeys.StoreEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='StoredKeys.StoreEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='StoredKeys.StoreEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=223,
-  serialized_end=267,
-)
-
 _STOREDKEYS = _descriptor.Descriptor(
   name='StoredKeys',
   full_name='StoredKeys',
@@ -246,8 +208,8 @@ _STOREDKEYS = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='store', full_name='StoredKeys.store', index=0,
-      number=1, type=11, cpp_type=10, label=3,
+      name='keys', full_name='StoredKeys.keys', index=0,
+      number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -255,7 +217,7 @@ _STOREDKEYS = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_STOREDKEYS_STOREENTRY, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -265,11 +227,9 @@ _STOREDKEYS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=170,
-  serialized_end=267,
+  serialized_end=196,
 )
 
-_STOREDKEYS_STOREENTRY.containing_type = _STOREDKEYS
-_STOREDKEYS.fields_by_name['store'].message_type = _STOREDKEYS_STOREENTRY
 DESCRIPTOR.message_types_by_name['KeyValue'] = _KEYVALUE
 DESCRIPTOR.message_types_by_name['Key'] = _KEY
 DESCRIPTOR.message_types_by_name['Value'] = _VALUE
@@ -314,22 +274,13 @@ Void = _reflection.GeneratedProtocolMessageType('Void', (_message.Message,), {
 _sym_db.RegisterMessage(Void)
 
 StoredKeys = _reflection.GeneratedProtocolMessageType('StoredKeys', (_message.Message,), {
-
-  'StoreEntry' : _reflection.GeneratedProtocolMessageType('StoreEntry', (_message.Message,), {
-    'DESCRIPTOR' : _STOREDKEYS_STOREENTRY,
-    '__module__' : 'keyvalue_pb2'
-    # @@protoc_insertion_point(class_scope:StoredKeys.StoreEntry)
-    })
-  ,
   'DESCRIPTOR' : _STOREDKEYS,
   '__module__' : 'keyvalue_pb2'
   # @@protoc_insertion_point(class_scope:StoredKeys)
   })
 _sym_db.RegisterMessage(StoredKeys)
-_sym_db.RegisterMessage(StoredKeys.StoreEntry)
 
 
-_STOREDKEYS_STOREENTRY._options = None
 
 _KEYVALUESERVICE = _descriptor.ServiceDescriptor(
   name='KeyValueService',
@@ -338,8 +289,8 @@ _KEYVALUESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=269,
-  serialized_end=375,
+  serialized_start=198,
+  serialized_end=304,
   methods=[
   _descriptor.MethodDescriptor(
     name='get',

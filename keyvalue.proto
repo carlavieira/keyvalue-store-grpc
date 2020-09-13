@@ -18,7 +18,7 @@ message KeyValue {
 
 // The GET message containing the key's name.
 message Key {
-    int32 key = 1;
+    string key = 1;
 }
 
 // The response message containing the key's value.
@@ -40,5 +40,5 @@ message Void {
 
 // The response message containing all keys stored.
 message StoredKeys {
-    map<string, string> store = 1;
+    repeated string keys = 1;
 }

@@ -1,26 +1,47 @@
 from concurrent import futures
-import logging
-
 import grpc
+import logging
+import sys
 
-import keyvalue_pb2
-import keyvalue_pb2_grpc
+import keyvalue_pb2 as keyvalue
+import keyvalue_pb2_grpc as keyvalue_grpc
 
 
-class Greeter(helloworld_pb2_grpc.GreeterServicer):
+class ConfigError(Exception):
+    pass
 
-    def SayHello(self, request, context):
-        return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name)
+fake_db = {
+}
+
+class KeyValueServicer(keyvalue_grpc.KeyValueServiceServicer):
+    def get(self, request, context):
+        key = request.key
+        if key in fake_db.keys():            
+            value=fake_db.get(key)
+            return keyvalue.Value(value=value, defined=True)
+        else:
+            return keyvalue.Value(value=None, defined=False)
+
+    def put(self, request, context):
+        key = str(request.key)
+        value = str(request.value)
+        fake_db[key] = value
+        return keyvalue.Void()
+
+    def getAllKeys(self, request, context):
+        return keyvalue.StoredKeys(keys= fake_db.keys())
 
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    helloworld_pb2_grpc.add_GreeterServicer_to_server(Greeter(), server)
+    keyvalue_grpc.add_KeyValueServiceServicer_to_server(KeyValueServicer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
+    print("Listening on 50051")
     server.wait_for_termination()
 
-
-if __name__ == '__main__':
-    logging.basicConfig()
-    serve()
+if __name__ == "__main__":
+    try:
+        serve()
+    except ConfigError as e:
+        print("error:", e.args[0])
