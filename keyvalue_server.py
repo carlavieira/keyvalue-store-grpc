@@ -37,7 +37,6 @@ def serve():
     keyvalue_grpc.add_KeyValueServiceServicer_to_server(KeyValueServicer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
-    print("Listening on 50051")
     server.wait_for_termination()
 
 if __name__ == "__main__":

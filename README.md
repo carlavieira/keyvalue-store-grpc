@@ -66,3 +66,13 @@ $ python -m pip install grpcio-tools
 ```
 # Use Instructions
 
+From one terminal, run the server:
+```shell
+$ python keyvalue_server.py
+```
+
+From another terminal, run the client:
+```shell
+$ python keyvalue_server.py
+```
+Select the option from the client menu.
